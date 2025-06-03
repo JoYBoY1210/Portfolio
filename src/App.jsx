@@ -4,7 +4,7 @@ import Landing from './components/Landing.jsx'
 import About from './components/About.jsx'
 import Skills from './components/skills.jsx'
 import Projects from './components/Projects.jsx'
-
+import Contact from './components/ContactMe.jsx'
 
 function App() {
   
@@ -14,7 +14,8 @@ function App() {
       {/* <Landing /> */}
       {/* <About /> */}
       {/* <Skills /> */}
-      <Projects />
+      {/* <Projects /> */}
+      <Contact />
     </div>
   )
 }

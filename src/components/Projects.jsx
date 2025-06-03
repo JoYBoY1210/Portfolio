@@ -1,134 +1,77 @@
 import React from "react";
-import { motion } from "motion/react";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import { SiGithub } from "react-icons/si";
+import { motion } from "framer-motion";
+import { SiGithub, SiGmail, SiInstagram, SiLinkedin } from "react-icons/si";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeInOut",
-    },
-  },
-};
-
-function Projects() {
-  const headingRef = useRef(null);
-  const WaddleRef = useRef(null);
-  const GinxRef = useRef(null);
-  const toolsRef = useRef(null);
-  const designRef = useRef(null);
-  const langRef = useRef(null);
-
-  const headingInView = useInView(headingRef, { once: true });
-  const Waddle = useInView(WaddleRef, { once: true });
-  const Ginx = useInView(GinxRef, { once: true });
-  const toolsInView = useInView(toolsRef, { once: true });
-  const designInView = useInView(designRef, { once: true });
-  const langInView = useInView(langRef, { once: true });
-
+function Contact() {
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="bg-black min-h-screen text-white font-[Tektur] px-28 py-20"
+      className="bg-black min-h-screen flex flex-col items-center justify-center px-6 py-20 font-[Tektur]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
     >
       <motion.h1
-        ref={headingRef}
-        initial="hidden"
-        animate={Waddle ? "visible" : "hidden"}
-        variants={itemVariants}
-        className="text-6xl font-bold text-center text-cyan-400 underline underline-offset-8 mb-20"
+        className="text-6xl font-bold text-cyan-400 mb-16 underline underline-offset-8"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Projects
+        Contact Me
       </motion.h1>
 
-      <motion.h2
-        ref={WaddleRef}
-        initial="hidden"
-        animate={Waddle ? "visible" : "hidden"}
-        variants={itemVariants}
-        className="text-5xl mb-8 font-bold text-purple-500"
-      >
-        Waddle
-      </motion.h2>
-      <motion.div
-        ref={WaddleRef}
-        initial="hidden"
-        animate={Waddle ? "visible" : "hidden"}
-        variants={itemVariants}
-        className="border-2 border-purple-500 rounded-lg text-2xl p-8 flex flex-col items-center gap-6 flex-wrap mb-16"
-      >
-        <p>
-          <span className="font-bold">Waddle</span> is a PDF notes summarizer
-          web app that uses Facebook’s BART model to generate concise summaries
-          from uploaded PDFs. It helps users quickly grasp key concepts by
-          extracting important points from lengthy documents. Summaries are
-          saved folder-wise as organized notes, making studying and retrieval
-          seamless and efficient.
-        </p>
+      <div className="flex gap-12 flex-wrap justify-center">
         <motion.a
-          href="https://github.com/JoYBoY1210/Waddle"
+          href="https://github.com/JoYBoY1210"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-white text-6xl"
           whileHover={{ scale: 1.3 }}
-          className="text-white"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
         >
-          <SiGithub className="text-5xl" />
+          <SiGithub />
         </motion.a>
-      </motion.div>
 
-      <motion.h2
-        ref={GinxRef}
-        initial="hidden"
-        animate={Ginx ? "visible" : "hidden"}
-        variants={itemVariants}
-        className="text-5xl mb-8 font-bold text-cyan-500"
-      >
-        Ginx
-      </motion.h2>
-      <motion.div
-        ref={GinxRef}
-        initial="hidden"
-        animate={Ginx ? "visible" : "hidden"}
-        variants={itemVariants}
-        className="border-2 border-cyan-500 rounded-lg text-2xl p-8 flex flex-col items-center gap-6 flex-wrap mb-16"
-      >
-        <p>
-          
-          <span className="font-bold">Ginx</span> is a lightweight, Nginx-inspired web server built entirely in
-          Go. It supports both static file hosting and reverse proxying, along
-          with hot reload for a smooth development experience. Designed for
-          simplicity and speed, Ginx offers a developer-friendly alternative for
-          serving and routing web traffic efficiently.
-        </p>
         <motion.a
-          href="https://github.com/JoYBoY1210/Ginx"
+          href="mailto:tanishmirajkar12@gmail.com"
+          className="text-red-500 text-6xl"
+          whileHover={{ scale: 1.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <SiGmail />
+        </motion.a>
+
+        <motion.a
+          href="https://www.instagram.com/just_tanish12/"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-pink-500 text-6xl"
           whileHover={{ scale: 1.3 }}
-          className="text-white"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
         >
-          <SiGithub className="text-5xl" />
+          <SiInstagram />
         </motion.a>
-      </motion.div>
+
+        <motion.a
+          href="https://www.linkedin.com/in/tanish-mirajkar-b5a41b326/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 text-6xl"
+          whileHover={{ scale: 1.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <SiLinkedin />
+        </motion.a>
+      </div>
     </motion.div>
   );
 }
 
-export default Projects;
+export default Contact;
