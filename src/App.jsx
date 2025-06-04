@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import Landing from './components/Landing.jsx'
 import About from './components/About.jsx'
-import Skills from './components/skills.jsx'
+import Skills from './components/Skills.jsx'
 import Projects from './components/Projects.jsx'
 import Contact from './components/ContactMe.jsx'
 
