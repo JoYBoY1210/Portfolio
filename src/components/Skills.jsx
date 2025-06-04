@@ -5,6 +5,9 @@ import {
   SiPython, SiC, SiCplusplus, SiJavascript, SiGo
 } from 'react-icons/si';
 import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,6 +32,7 @@ const itemVariants = {
 };
 
 function Skills() {
+  const navigate = useNavigate();
   const headingRef = useRef(null);
   const frontendRef = useRef(null);
   const backendRef = useRef(null);
@@ -43,14 +47,21 @@ function Skills() {
   const designInView = useInView(designRef, { once: true });
   const langInView = useInView(langRef, { once: true });
 
+  const handleNextClick = () => {
+    navigate("/projects");
+  };
+
+  const handlePrevClick = () => {
+    navigate("/about");
+  };
+
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="bg-black min-h-screen text-white font-[Tektur] px-28 py-20"
+      className="bg-black min-h-screen text-white font-[Tektur] px-28 py-20 relative"
     >
-
       <motion.h1
         ref={headingRef}
         initial="hidden"
@@ -210,6 +221,24 @@ function Skills() {
           <span className="mt-2 text-cyan-200 text-lg">Golang</span>
         </div>
       </motion.div>
+
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handlePrevClick}
+        className="fixed flex items-center gap-x-1 bottom-6 left-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        <FaLongArrowAltLeft /> Back
+      </motion.button>
+
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleNextClick}
+        className="fixed flex gap-x-1 items-center bottom-6 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Next <FaLongArrowAltRight />
+      </motion.button>
     </motion.div>
   );
 }

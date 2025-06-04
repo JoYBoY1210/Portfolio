@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { animate, motion, useInView } from "framer-motion";
 import killua from "../assets/killua.jpg";
+import { useNavigate } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +30,11 @@ const itemVariants = {
 function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const handleNextClick = () => {
+    navigate("/skills");
+  };
+const navigate = useNavigate();
+
 
   return (
     <motion.div
@@ -103,6 +112,16 @@ function About() {
           </p>
           
         </motion.div>
+        <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleNextClick}
+        className="fixed bottom-6 flex items-center gap-x-1 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Next <FaLongArrowAltRight />
+
+
+      </motion.button>
       </div>
     </motion.div>
   );

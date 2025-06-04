@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SiGithub, SiGmail, SiInstagram, SiLinkedin } from "react-icons/si";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const icons = [
   {
@@ -26,6 +28,10 @@ const icons = [
 ];
 
 function Contact() {
+    const navigate = useNavigate();
+  const handleNextClick = () => {
+    navigate("/");
+  };
   return (
     <div className="bg-black min-h-screen flex flex-col items-center justify-center px-6 py-20 font-[Tektur]">
       <h1 className="text-6xl font-bold text-cyan-400 mb-16 underline underline-offset-8">
@@ -45,6 +51,14 @@ function Contact() {
           </motion.a>
         ))}
       </div>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleNextClick}
+        className="fixed bottom-6 flex items-center gap-x-1 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Home <FaLongArrowAltRight />
+      </motion.button>
     </div>
   );
 }
