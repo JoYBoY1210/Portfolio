@@ -6,6 +6,8 @@ import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { IoIosHome } from "react-icons/io";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,13 +38,17 @@ function Projects() {
   const DoramiRef = useRef(null);
   const GoProxRef = useRef(null);
   const DexRef = useRef(null);
-    const navigate = useNavigate();
-    const handleNextClick = () => {
-      navigate("/contact");
-    };
-    const handlePrevClick = () => {
-      navigate("/about");
-    };
+  const navigate = useNavigate();
+  const handleNextClick = () => {
+    navigate("/contact");
+  };
+  const handlePrevClick = () => {
+    navigate("/skills");
+  };
+
+  const handleHomeClick=()=>{
+    navigate("/");
+  }
 
   const headingInView = useInView(headingRef, { once: true });
   const Waddle = useInView(WaddleRef, { once: true });
@@ -58,6 +64,15 @@ function Projects() {
       variants={containerVariants}
       className="bg-black min-h-screen text-white font-[Tektur] px-28 py-20"
     >
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleHomeClick}
+        className="absolute top-6  flex items-center gap-x-1 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Home <IoIosHome className="text-white" />
+      </motion.button>
+
       <motion.h1
         ref={headingRef}
         initial="hidden"
@@ -233,8 +248,8 @@ function Projects() {
         className="border-2 border-cyan-500 rounded-lg text-2xl p-8 flex flex-col items-center gap-6 flex-wrap mb-16"
       >
         <p>
-          Dex is a minimalist Chrome extension bookmark manager built with
-          React and Golang. It lets you save and organize links into categories
+          Dex is a minimalist Chrome extension bookmark manager built with React
+          and Golang. It lets you save and organize links into categories
           effortlessly, offering a clean, user-friendly interface for quick
           access and streamlined browsing.
         </p>
@@ -249,25 +264,23 @@ function Projects() {
         </motion.a>
       </motion.div>
 
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handlePrevClick}
+        className="fixed flex items-center gap-x-1 bottom-6 left-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        <FaLongArrowAltLeft /> Back
+      </motion.button>
 
       <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handlePrevClick}
-              className="fixed flex items-center gap-x-1 bottom-6 left-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
-            >
-              <FaLongArrowAltLeft /> Back
-            </motion.button>
-      
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleNextClick}
-              className="fixed flex gap-x-1 items-center bottom-6 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
-            >
-              Next <FaLongArrowAltRight />
-            </motion.button>
-
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleNextClick}
+        className="fixed flex gap-x-1 items-center bottom-6 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Next <FaLongArrowAltRight />
+      </motion.button>
     </motion.div>
   );
 }

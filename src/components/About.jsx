@@ -3,7 +3,7 @@ import { animate, motion, useInView } from "framer-motion";
 import killua from "../assets/killua.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
-
+import { IoIosHome } from "react-icons/io";
 
 
 const containerVariants = {
@@ -33,7 +33,10 @@ function About() {
   const handleNextClick = () => {
     navigate("/skills");
   };
-const navigate = useNavigate();
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+  const navigate = useNavigate();
 
 
   return (
@@ -44,6 +47,16 @@ const navigate = useNavigate();
       animate={isInView ? "visible" : "hidden"}
       className="bg-black min-h-screen text-purple-300 px-12 py-16"
     >
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleHomeClick}
+        className=" absolute top-6  flex items-center gap-x-1 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Home <IoIosHome className="text-white" />
+
+
+      </motion.button>
       <motion.h1
         variants={itemVariants}
         className="text-5xl font-bold text-purple-500 underline underline-offset-8 mb-10 font-[Tektur] text-center"

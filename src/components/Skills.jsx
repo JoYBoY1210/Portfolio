@@ -1,13 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
-  SiTailwindcss, SiReact, SiDjango, SiPostgresql, SiSqlite,
-  SiFigma, SiCanva, SiGit, SiGithub, SiPostman, SiLinux,
-  SiPython, SiC, SiCplusplus, SiJavascript, SiGo
-} from 'react-icons/si';
-import { motion, useInView } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+  SiTailwindcss,
+  SiReact,
+  SiDjango,
+  SiPostgresql,
+  SiSqlite,
+  SiFigma,
+  SiCanva,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiLinux,
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiJavascript,
+  SiGo,
+} from "react-icons/si";
+import { motion, useInView } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { IoIosHome } from "react-icons/io";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -15,8 +29,8 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-    }
-  }
+    },
+  },
 };
 
 const itemVariants = {
@@ -26,9 +40,9 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeInOut"
-    }
-  }
+      ease: "easeInOut",
+    },
+  },
 };
 
 function Skills() {
@@ -55,6 +69,10 @@ function Skills() {
     navigate("/about");
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  }
+
   return (
     <motion.div
       initial="hidden"
@@ -62,6 +80,14 @@ function Skills() {
       variants={containerVariants}
       className="bg-black min-h-screen text-white font-[Tektur] px-28 py-20 relative"
     >
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleHomeClick}
+        className="absolute top-6  flex items-center gap-x-1 right-6 bg-purple-600 text-white px-5 py-3 rounded-xl text-xl font-[Tektur] shadow-lg hover:bg-purple-700 transition-all duration-300"
+      >
+        Home <IoIosHome className="text-white" />
+      </motion.button>
       <motion.h1
         ref={headingRef}
         initial="hidden"
