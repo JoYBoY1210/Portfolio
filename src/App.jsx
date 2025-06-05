@@ -6,10 +6,14 @@ import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 import Projects from './components/Projects.jsx'
 import Contact from './components/ContactMe.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
+import { div } from 'motion/react-client'
 
 function App() {
   return (
-    <Router>
+    <div className='bg-black'>
+      <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
@@ -17,7 +21,12 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+
     </Router>
+
+    </div>
+
+    
   )
 }
 
